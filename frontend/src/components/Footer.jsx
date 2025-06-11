@@ -6,7 +6,7 @@ const Footer = () => {
     <div className=" w-full bg-white border-t text-sm text-gray-600 z-50 px-4 sm:px-20 py-3">
       <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-6 sm:gap-14 items-start">
         <div>
-          <img src="" alt="misfits" className="w-20 mb-2" />
+          <img src={assets.logo} alt="misfits" className="w-20 mb-2 h-20" />
           <p className="text-xs leading-snug">
             Discover our bold new arrivals designed to break the rules. From
             streetwear to statement pieces, Misfits brings you styles that dare

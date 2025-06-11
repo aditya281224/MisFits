@@ -140,6 +140,7 @@ const Product = () => {
               }
 
               addToCart(productData._id, sizesArray)
+              
               setQty({});
             }}
             className="bg-black text-white px-8 py-3 text-sm active:bg-gray-700"
