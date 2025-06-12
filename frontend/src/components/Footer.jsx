@@ -3,10 +3,10 @@ import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <div className=" w-full bg-white border-t text-sm text-gray-600 z-50 px-4 sm:px-20 py-3">
-      <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-6 sm:gap-14 items-start">
+    <div> 
+      <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm">
         <div>
-          <img src={assets.logo} alt="misfits" className="w-20 mb-2 h-20" />
+          <img src={assets.logo} alt="misfits" className="w-20 mb-5 h-20" />
           <p className="text-xs leading-snug">
             Discover our bold new arrivals designed to break the rules. From
             streetwear to statement pieces, Misfits brings you styles that dare
@@ -14,10 +14,10 @@ const Footer = () => {
           </p>
         </div>
 
-        {/* Company Links */}
+        
         <div>
-          <h3 className="font-semibold text-gray-800 mb-2 text-sm">COMPANY</h3>
-          <ul className="space-y-1 text-xs">
+          <p className="text-xl font-medium mb-5 ">COMPANY</p>
+          <ul className="flex flex-col gap-1 text-gray-600">
             <li>
               <Link to="/">Home</Link>
             </li>
@@ -27,10 +27,24 @@ const Footer = () => {
             <li>
               <Link to="/collection">Collections</Link>
             </li>
+            <li>
+              <Link to="/contact">Contact Us</Link>
+            </li>
           </ul>
         </div>
 
-        {/* Add more sections here if needed */}
+        <div>
+          <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
+          <ul className="flex flex-col gap-1 text-gray-600">
+            <li>1999999999</li>
+            <li>developer@email.com</li>
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <hr></hr>
+        <p className="py-5 text-sm text-center">CopyRight 2025@ misfits.com - All Rights Reserved</p>
       </div>
     </div>
   );
