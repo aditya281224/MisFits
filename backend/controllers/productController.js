@@ -2,6 +2,9 @@ import { v2 as cloudinary } from "cloudinary";
 import productModel from "../models/productModel.js"
 const addProduct = async (req, res) => {
   try {
+    
+    
+
     const {
       name,
       description,
@@ -11,7 +14,7 @@ const addProduct = async (req, res) => {
       sizes,
       bestseller,
     } = req.body;
-
+   
     const image1 = req.files?.image1?.[0];
     const image2 = req.files?.image2?.[0];
     const image3 = req.files?.image3?.[0];
@@ -44,7 +47,7 @@ const addProduct = async (req, res) => {
     };
 
     const product = new productModel(productData);
-    console.log("this is product",product)
+    
     await product.save();
     res.json({
       success:true,
