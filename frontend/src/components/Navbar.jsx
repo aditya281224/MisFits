@@ -5,90 +5,124 @@ import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-  const {getCartCount,navigate,token,setToken,setCartItems}=useContext(ShopContext);
-  const {setShowSearch} = useContext(ShopContext);
+  const { getCartCount, navigate, token, setToken, setCartItems } =
+    useContext(ShopContext);
+  const { setShowSearch } = useContext(ShopContext);
 
-  const logout = () =>{
-    navigate('/')
-    localStorage.removeItem('token')
-    setToken('')
-    setCartItems({})
-    
-  }
+  const logout = () => {
+    navigate("/");
+    localStorage.removeItem("token");
+    setToken("");
+    setCartItems({});
+  };
   return (
-    <div className="flex items-center justify-between py-5 font-medium">
-      <Link to="/"><img src={assets.logo} alt="MisFits" className="w-20 h-10" /></Link>
-
-      <ul className="hidden sm:flex gap-5 text-sm text-gray-700">
-        <NavLink to="/" className="flex flex-col items-center gap-1">
-          <p>HOME</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden"></hr>
-        </NavLink>
-
-        <NavLink to="/collection" className="flex flex-col items-center gap-1">
-          <p>COLLECTION</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden"></hr>
-        </NavLink>
-
-        <NavLink to="/about" className="flex flex-col items-center gap-1">
-          <p>ABOUT</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden"></hr>
-        </NavLink>
-
-        <NavLink to="/contact" className="flex flex-col items-center gap-1">
-          <p>CONTACT</p>
-          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden"></hr>
-        </NavLink>
-      </ul>
-
-      <div className="flex items-center gap-6">
-        <img onClick={()=>setShowSearch(true)} src={assets.search_icon} className="w-5 cursor-pointer" />
-
-        <div className="group relative">
-          <img onClick={()=>token?null:navigate('/login')} className="w-5 cursor-pointer" src={assets.profile_icon} />
-          {/* DropDown */}
-          {
-            token && <div className="group-hover:block hidden absolute dropdown-menu right-0 pt-4">
-            <div className="flex flex-col gap-2  w-36 py-3 px-5 bg-slate-100 text-gray-500 rounded">
-              <p className="cursor-pointer hover:text-black">My Profile</p>
-              <p onClick={()=>navigate('/orders')} className="cursor-pointer hover:text-black">Orders</p>
-              <p onClick={logout} className="cursor-pointer hover:text-black">LogOut</p>
-            </div>
-          </div>
-          }
-        </div>
-        <Link to="/cart" className="relative">
-          <img src={assets.cart_icon} className="w-5 min-w-5" />
-          <p className="absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]">
-            {getCartCount()}
-          </p>
+    <div className="w-full text-sm bg-gradient-to-r from-pink-300 to-yellow-50">
+      <div className="max-w-7xl mx-auto px-3 flex items-center justify-between py-3">
+        {/* Logo */}
+        <Link to="/">
+          <img src={assets.logo} alt="MisFits" className="w-16 h-auto" />
         </Link>
 
-        <img
-          src={assets.menu_icon}
-          className="w-5 cursor-pointer sm:hidden"
-          onClick={() => setVisible(true)}
-        />
+        {/* Desktop Nav */}
+        <ul className="hidden sm:flex gap-4 text-gray-800 font-medium">
+          {["/", "/collection", "/about", "/contact"].map((path, i) => (
+            <NavLink
+              key={i}
+              to={path}
+              className={({ isActive }) =>
+                `hover:text-black transition ${
+                  isActive ? "text-black underline underline-offset-4" : ""
+                }`
+              }
+            >
+              {path === "/" ? "HOME" : path.replace("/", "").toUpperCase()}
+            </NavLink>
+          ))}
+        </ul>
+
+        {/* Icons */}
+        <div className="flex items-center gap-4 sm:gap-5">
+          <img
+            onClick={() => setShowSearch(true)}
+            src={assets.search_icon}
+            className="w-4 cursor-pointer"
+            alt="search"
+          />
+
+          {/* Profile Dropdown */}
+          <div className="relative group">
+            <img
+              onClick={() => (token ? null : navigate("/login"))}
+              src={assets.profile_icon}
+              className="w-4 cursor-pointer"
+              alt="profile"
+            />
+            {token && (
+              <div className="absolute right-0 mt-1 w-36 bg-white text-gray-600 rounded shadow-md opacity-0 group-hover:opacity-100 hover:opacity-100 transition-opacity duration-200 z-10 text-xs">
+                <div className="flex flex-col px-3 py-2 gap-1">
+                  <p
+                    onClick={() => navigate("/orders")}
+                    className="cursor-pointer hover:text-black"
+                  >
+                    Orders
+                  </p>
+                  <p
+                    onClick={logout}
+                    className="cursor-pointer hover:text-black"
+                  >
+                    Log Out
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Cart */}
+          <Link to="/cart" className="relative">
+            <img src={assets.cart_icon} className="w-4" alt="cart" />
+            <p className="absolute -right-1 -bottom-1 w-3.5 h-3.5 bg-black text-white text-[8px] rounded-full flex items-center justify-center">
+              {getCartCount()}
+            </p>
+          </Link>
+
+          {/* Mobile Menu Icon */}
+          <img
+            src={assets.menu_icon}
+            className="w-4 cursor-pointer sm:hidden"
+            onClick={() => setVisible(true)}
+            alt="menu"
+          />
+        </div>
       </div>
 
-      {/* Sidebar menu for small screen */}
+      {/* Mobile Sidebar */}
       <div
-        className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all duration-300 z-50 ${
-    visible ? "w-full" : "w-0"
-  }`}
+        className={`fixed top-0 right-0 h-full bg-gradient-to-b from-pink-100 to-yellow-50 transition-all duration-300 z-50 ${
+          visible ? "w-full sm:w-64" : "w-0"
+        } overflow-hidden`}
       >
-        <div className="flex flex-col text-gray-600 ">
+        <div className="flex flex-col text-gray-700 font-medium text-sm">
           <div
             onClick={() => setVisible(false)}
-            className="cursor-pointer flex items-center gap-4 p-3"
+            className="cursor-pointer flex items-center gap-3 p-3 border-b"
           >
-            <img className="h-4 rotate-180" src={assets.dropdown_icon}></img>
+            <img
+              className="h-3 rotate-180"
+              src={assets.dropdown_icon}
+              alt="back"
+            />
             <p>Back</p>
           </div>
-          <NavLink onClick={()=>setVisible(false)} to='/' className='py-2 pl-6 border'>HOME</NavLink>
-          <NavLink onClick={()=>setVisible(false)} to='/collection' className='py-2 pl-6 border'>COLLECTION</NavLink>
-          <NavLink onClick={()=>setVisible(false)} to='/about' className='py-2 pl-6 border'>ABOUT</NavLink>
-          <NavLink onClick={()=>setVisible(false)} to='/contact' className='py-2 pl-6 border'>CONTACT</NavLink>
+          {["/", "/collection", "/about", "/contact"].map((path, i) => (
+            <NavLink
+              key={i}
+              onClick={() => setVisible(false)}
+              to={path}
+              className="py-2 px-5 border-b hover:bg-pink-200 transition"
+            >
+              {path === "/" ? "HOME" : path.replace("/", "").toUpperCase()}
+            </NavLink>
+          ))}
         </div>
       </div>
     </div>

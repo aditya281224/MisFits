@@ -7,12 +7,12 @@ import NewsLetterBox from '../components/NewsLetterBox'
 
 const Home = () => {
   return (
-    <div>
+    <div className='bg-gradient-to-r from-blue-100 to-yellow-50'>
       <Hero/>
       <LatestCollection/>
       <BestSeller/>
       <OurPolicy/>
-      <NewsLetterBox/>
+      
     </div>
   )
 }

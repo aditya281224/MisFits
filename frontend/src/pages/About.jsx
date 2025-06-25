@@ -1,17 +1,17 @@
 import { assets } from "../assets/assets";
 import Title from "../components/Title";
-import NewsLetterbox from "../components/NewsLetterBox"
+
 const About = () => {
   return (
-    <div>
+    <div className="bg-gradient-to-r from-blue-100 to-yellow-50">
       <div className="text-2xl text-center pt-8 border-t">
         <Title text1={"ABOUT"} text2={"US"} />
       </div>
 
       <div className="my-10 flex flex-col md:flex-row gap-16">
         <img src={assets.about_img} className="w-full md:max-w-[450px]"></img>
-        <div className="flex flex-col justify-center gap-6 md:w-2/4 text-gray-600">
-          <p>
+        <div className="flex flex-col justify-center gap-6 md:w-2/4 text-gray-600 ">
+          <p className="text-sm">
             Misfits is a bold and trend-driven e-commerce clothing brand made
             for Gen Z. From streetwear staples to statement pieces, Misfits
             blends individuality with attitude, empowering you to dress
@@ -38,8 +38,9 @@ const About = () => {
         <Title text1={"WHY"} text2={"CHOOSE US"} />
       </div>
 
-      <div className="flex flex-col md:flex-row text-sm mb-20">
-        <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
+      <div>
+        <div className="flex flex-col md:flex-row text-sm mb-20">
+        <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5 rounded-md shadow">
           <b>Quality Assurance</b>
           <p className="text-gray-600">
             At Misfits, quality isn’t optional — it’s guaranteed. Every piece
@@ -60,16 +61,31 @@ const About = () => {
           </p>
         </div>
 
-        <div className="border px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5">
+        <div className="border  px-10 md:px-16 py-8 sm:py-20 flex flex-col gap-5 rounded-md shadow">
           <b>Exceptional Customer Service:</b>
           <p className="text-gray-600">
-           At Misfits, we're here for you — always. Our customer support team is friendly, responsive, and ready to help with anything you need, from order updates to style advice. Got a question or an issue? We’ve got your back, every step of the way.
+            At Misfits, we're here for you — always. Our customer support team
+            is friendly, responsive, and ready to help with anything you need,
+            from order updates to style advice. Got a question or an issue?
+            We’ve got your back, every step of the way.
           </p>
         </div>
-        
       </div>
 
-      <NewsLetterbox/>
+      </div>
+      <div className=" py-12 text-center rounded-md">
+        <Title text1={"THE"} text2={"MISFITS MANIFESTO"} />
+        <p className="mt-4 px-6 max-w-3xl mx-auto text-sm sm:text-base text-gray-700 leading-relaxed">
+          We don’t do normal. We do bold. At Misfits, we believe style is
+          rebellion, self-expression is power, and comfort never goes out of
+          fashion.
+          <br />
+          No trends. No filters. No apologies.
+        </p>
+        <p className="mt-6 text-pink-600 font-medium text-sm sm:text-base">
+          💥 Wear what you want. Say what you feel. Be who you are.
+        </p>
+      </div>
     </div>
   );
 };

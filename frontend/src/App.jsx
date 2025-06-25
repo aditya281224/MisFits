@@ -16,7 +16,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css'
 const App = () => {
   return (
-    <div className='px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]'>
+    <div className='min-h-screen px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw] bg-gradient-to-r from-pink-300 to-yellow-50 '>
 
       <ToastContainer/>
       <Navbar/>

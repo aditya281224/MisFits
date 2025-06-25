@@ -72,6 +72,7 @@ const Collection = () => {
   },[sortType])
 
   return (
+    <div className="bg-gradient-to-r from-blue-100 to-yellow-50 border border-gray-200 min-h-screen py-10 px-4 sm:px-10">
     <div className="flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t">
       {/* Filters */}
 
@@ -199,6 +200,7 @@ const Collection = () => {
           ))}
         </div>
       </div>
+    </div>
     </div>
   );
 };

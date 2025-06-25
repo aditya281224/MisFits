@@ -3,8 +3,8 @@ import { assets } from "../assets/assets";
 import { Link } from "react-router-dom";
 const Footer = () => {
   return (
-    <div> 
-      <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm">
+    <div className=" bg-gradient-to-r from-pink-300 to-yellow-50">  
+      <div className="flex flex-col sm:grid grid-cols-[3fr_1fr_1fr] gap-14 my-10 mt-40 text-sm ">
         <div>
           <img src={assets.logo} alt="misfits" className="w-20 mb-5 h-20" />
           <p className="text-xs leading-snug">
@@ -36,8 +36,8 @@ const Footer = () => {
         <div>
           <p className="text-xl font-medium mb-5">GET IN TOUCH</p>
           <ul className="flex flex-col gap-1 text-gray-600">
-            <li>1999999999</li>
-            <li>developer@email.com</li>
+            <li>+91 99999-99999</li>
+            <li>support@misfitswears.in</li>
           </ul>
         </div>
       </div>
@@ -51,3 +51,6 @@ const Footer = () => {
 };
 
 export default Footer;
+
+
+ 
