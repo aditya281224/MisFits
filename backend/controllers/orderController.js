@@ -61,11 +61,30 @@ const userOrders = async (req, res) => {
     })
   }
   catch(error){
-    console.log(error);message:error.message;
+    res.json({
+      success:false,
+      message:error.message
+    })
   }
 };
 
-const updateStatus = async (req, res) => {};
+const updateStatus = async (req, res) => {
+  try{
+    const {orderId,status} = req.body;
+    await orderModel.findByIdAndUpdate(orderId,{status})
+    res.json({
+      success:true,
+      message:'Status Updated'
+    })
+  }
+  catch(error){
+    res.json({
+      success:false,
+      message:error.message
+    })
+
+  }
+};
 
 export {
   placeOrder,
