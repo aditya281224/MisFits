@@ -27,7 +27,7 @@ const Cart = () => {
  
 
   return (
-    <div className="border-t pt-14">
+    <div className="border-t pt-14 bg-gradient-to-r from-blue-100 to-yellow-50">
       <div className="text-2xl mb-3">
         <Title text1={'YOUR'} text2={'CART'}/>
       </div>

@@ -14,7 +14,7 @@ const BestSeller = () => {
     setBestSeller(bestProduct.slice(0, 5));
   }, [products]);
   return (
-    <div className="my-10 bg-gradient-to-r from-blue-100 to-yellow-50">
+    <div className="my-10 ">
       <div className="text-center px-4">
         <Title text1={"BEST"} text2={"SELLERS"} />
         <p className="w-11/12 sm:w-3/4 mx-auto text-sm sm:text-base text-[#2b2b2b] mt-4 leading-relaxed font-light">

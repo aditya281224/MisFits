@@ -50,7 +50,7 @@ const Product = () => {
   }, [qty]);
 
   return productData ? (
-    <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100">
+    <div className="border-t-2 pt-10 transition-opacity ease-in duration-500 opacity-100 bg-gradient-to-r from-blue-100 to-yellow-50">
       {/* Product DaTA */}
 
       <div className="flex gap-12 sm:gap-12 flex-col sm:flex-row">

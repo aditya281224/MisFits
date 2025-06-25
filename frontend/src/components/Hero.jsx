@@ -6,7 +6,7 @@ import Title from "./Title";
 const Hero = () => {
   
   return (
-    <section className="flex flex-col sm:flex-row overflow-hidden bg-gradient-to-r from-blue-100 to-yellow-50 ">
+    <section className="flex flex-col sm:flex-row overflow-hidden">
       {/* Left Section */}
       <div className="w-full sm:w-1/2 flex items-center justify-center py-10 sm:py-0 px-6 sm:px-0">
         <div className="max-w-md text-[#333]">
